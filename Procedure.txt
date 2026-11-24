@@ -1,0 +1,27 @@
+procedure
+-------------------------------------------
+
+npx localtunnel --port 8080
+
+npx cloudflared tunnel --url http://localhost:8080
+
+pinggy.net
+
+Step 2: Configure Webhook on GitHub
+Open your repository on GitHub.
+
+Go to Settings > Webhooks > Add webhook.
+
+Fill out the configuration fields:
+
+Payload URL: Paste your LocalTunnel URL followed by /github-webhook/.
+
+Example: [https://crazy-fox-99.loca.lt/github-webhook/](https://crazy-fox-99.loca.lt/github-webhook/)
+
+Content type: application/json
+
+Secret: (Leave blank)
+
+Which events would you like to trigger this webhook?: Select Just the push event.
+
+Click Add webhook.
